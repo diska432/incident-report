@@ -81,7 +81,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Incident Tracker</h1>
+      <h1 id="head">Incident Tracker</h1>
       <form
         onSubmit={handleSubmit}
         className="new-item-form"
@@ -148,20 +148,23 @@ export default function App() {
         </thead>
         {incidents.map((incident) => {
           return (
-            <tr key={incident.id}>
-              <td>{incident.name}</td>
-              <td>{incident.description}</td>
-              <td>{incident.location}</td>
-              <td>{incident.date}</td>
-              <td>
-                <button
-                className="btn btn-danger"
-                onClick={() => deleteIncident(incident.id)}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
+            <tbody key={incident.id}>
+              <tr >
+                <td>{incident.name}</td>
+                <td>{incident.description}</td>
+                <td>{incident.location}</td>
+                <td>{incident.date}</td>
+                <td>
+                  <button
+                  className="btn btn-danger"
+                  onClick={() => deleteIncident(incident.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            
           );
         })}
       </table>
